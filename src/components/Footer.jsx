@@ -144,7 +144,7 @@ export default function Footer() {
                     {t("Privacy Policy")}
                   </a>
                 </li>
-                <li className="text-[17px] leading-6 text-[#c7c7c7] max-w-70">
+                <li className="text-[17px] leading-6 text-[#c7c7c7] max-w-70 mx-auto text-center">
                   {FOOTER.tradeLicense}
                 </li>
               </ul>
@@ -161,11 +161,11 @@ export default function Footer() {
 
       {/* SSL banner */}
       <div className="container-fluid mt-2 w-full p-0">
-        <div className="scroll-container w-full overflow-hidden">
+        <div className="scroll-container w-full overflow-x-auto whitespace-nowrap scrollbar-hide">
           <img
             src="/assets/images/clients/ssl.png"
             alt="SSL Logo"
-            className="h-15 md:h-auto w-full object-cover"
+            className="h-13 max-w-none xl:w-full inline-block object-cover"
           />
         </div>
       </div>

@@ -2,7 +2,8 @@ import { useState } from "react";
 import Button from "./Button";
 import { useI18n } from "../i18n";
 
-function RideCard({ card }) {
+function RideCard({ card, lang }) {
+  console.log(lang);
   return (
     <div className="w-full">
       <div className="group box-item-wrap-one relative inline-flex min-h-70 w-full flex-col items-start justify-center overflow-hidden rounded-xl bg-card-gb p-9 transition-all duration-500 hover:bg-primary-gb xl:min-h-81.5">
@@ -15,11 +16,11 @@ function RideCard({ card }) {
             src={card.image}
             alt={card.title}
             height={72}
-            className={`${card.title === 'Airport Rental' ? 'mt-11' : 'mt-2'} ${card.title === 'Hourly Rental' ? 'mt-8' : 'mt-2'} w-auto max-w-full transition-transform duration-500 group-hover:translate-x-5`}
+            className={`${card.title === 'Airport Rental' || 'এয়ারপোর্ট রেন্টাল' ? 'mt-11' : 'mt-2'} ${card.title === 'Hourly Rental' ? 'mt-8' : 'mt-2'} w-auto max-w-full transition-transform duration-500 group-hover:translate-x-5`}
           />
         </div>
-        <div className="box-iwo-text relative mt-4">
-          <h5 className={`text-[22px] font-semibold leading-7 text-ink-gb transition-colors duration-500 group-hover:text-white xl:text-2xl `}>
+        <div className={`box-iwo-text relative`}>
+          <h5 className={`text-[22px] font-semibold leading-7 text-ink-gb transition-colors duration-500 group-hover:text-white xl:text-2xl ${lang==='bn' ? 'mt-4' : 'mt-6'}`}>
             {card.title}
           </h5>
           <p className="mt-3 text-[17px] font-medium leading-6 text-muted-gb transition-colors duration-500 group-hover:text-white xl:text-lg">
@@ -31,7 +32,7 @@ function RideCard({ card }) {
   );
 }
 
-function RidesPane({ data, t }) {
+function RidesPane({ data, t, lang }) {
   return (
     <div className="fade-pane">
       <div className="section-header mb-5">
@@ -43,14 +44,14 @@ function RidesPane({ data, t }) {
       </div>
       <div className="grid grid-cols-1 gap-5.5 sm:grid-cols-2 xl:grid-cols-4">
         {data.rides.cards.map((card) => (
-          <RideCard key={card.title} card={card} />
+          <RideCard key={card.title} card={card} lang={lang} />
         ))}
       </div>
     </div>
   );
 }
 
-function FeaturePane({ tabKey, data, t }) {
+function FeaturePane({ data, t }) {
   return (
     <div className="fade-pane">
       <div className="flex items-center justify-center">
@@ -84,7 +85,7 @@ function FeaturePane({ tabKey, data, t }) {
 
 export default function ServicesSection() {
   const [active, setActive] = useState("rides");
-  const { data, t } = useI18n();
+  const { lang, data, t } = useI18n();
   const { SERVICES, SERVICES_TABS } = data;
 
   return (
@@ -118,7 +119,7 @@ export default function ServicesSection() {
 
         <div className="section-margin-mt-50">
           {active === "rides" ? (
-            <RidesPane data={SERVICES} t={t} />
+            <RidesPane data={SERVICES} t={t} lang={lang} />
           ) : (
             <FeaturePane tabKey={active} data={SERVICES[active]} t={t} />
           )}

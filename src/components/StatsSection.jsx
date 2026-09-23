@@ -56,7 +56,7 @@ export default function StatsSection() {
         stagger: 0.08,
         duration: 0.8,
         ease: "power3.out",
-        scrollTrigger: { trigger: el, start: "top 80%" },
+        scrollTrigger: { trigger: el, start: "top 80%", once: true },
       });
     }, el);
     return () => ctx.revert();
@@ -65,7 +65,7 @@ export default function StatsSection() {
   return (
     <section
       ref={skyRef}
-      className="happy-client-wrapper relative w-full"
+      className="happy-client-wrapper relative w-full mt-5"
       style={{ background: "linear-gradient(270deg, #0e53ff, #0038c4)" }}
       id="homepage_happy_client_wrapper">
       {/* Booking widget pulled over the hero boundary */}

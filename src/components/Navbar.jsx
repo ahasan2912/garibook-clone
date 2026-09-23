@@ -87,7 +87,7 @@ export default function Navbar() {
                 key={link.label}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className={`nav-theme-link ${link.href.slice(1) === active ? "active-menu" : ""}`}
+                className={`nav-theme-link ${link.href.slice(1) && link.href.slice(1) === active ? "active-menu" : ""}`}
               >
                 {link.label}
               </a>
@@ -153,7 +153,7 @@ export default function Navbar() {
                   <a
                     href={link.href}
                     onClick={(e) => handleNavClick(e, link.href)}
-                    className={`block border-b border-white/15 py-4 font-uncut text-[20px] font-medium text-white transition-colors hover:text-white/80 ${link.href.slice(1) === active ? "text-white/80" : ""}`}
+                    className={`block border-b border-white/15 py-4 font-uncut text-[20px] font-medium text-white transition-colors hover:text-white/80 ${link.href.slice(1) && link.href.slice(1) === active ? "text-white/80" : ""}`}
                   >
                     {link.label}
                   </a>

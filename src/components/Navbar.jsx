@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { FaBars, FaGlobe, FaRightToBracket, FaXmark } from "react-icons/fa6";
+import { FaBars, FaGlobe, FaXmark } from "react-icons/fa6";
 import { useI18n } from "../i18n";
 
 export default function Navbar() {
@@ -69,7 +69,7 @@ export default function Navbar() {
 
   return (
     <header className={navClass}>
-      <div className="container-gb flex items-center justify-between gap-4 py-[6px]">
+      <div className="container-gb flex items-center justify-between gap-4 py-1.5">
         <a href="/" aria-label="Garibook home" className="shrink-0">
           <img
             src={brandSrc}
@@ -122,7 +122,7 @@ export default function Navbar() {
 
       {/* Mobile offcanvas panel */}
       <div
-        className={`fixed inset-0 z-9999 lg:hidden ${open ? "" : "pointer-events-none"}`}
+        className={`fixed inset-0 z-50 lg:hidden ${open ? "" : "pointer-events-none"}`}
         aria-hidden={!open}
       >
         <div
@@ -134,8 +134,8 @@ export default function Navbar() {
             }`}
           aria-label="Mobile navigation"
         >
-          <div className="flex items-center justify-between px-6 py-5">
-            <img src={brandSrc} alt="Garibook" height={40} className="h-9 w-auto" />
+          <div className="flex items-center justify-end gap-4 px-6 py-5">
+            <LanguageToggle lang={lang} onToggle={toggle} />
             <button
               type="button"
               className="inline-flex h-10 w-10 items-center justify-center rounded-lg text-white hover:bg-white/10"
@@ -147,13 +147,13 @@ export default function Navbar() {
           </div>
 
           <nav className="flex-1 overflow-y-auto px-6 py-4" aria-label="Mobile">
-            <ul className="space-y-1">
+            <ul className="m-0 list-none space-y-7 p-0 text-center">
               {data.NAV_LINKS.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
                     onClick={(e) => handleNavClick(e, link.href)}
-                    className={`block border-b border-white/15 py-4 font-uncut text-[20px] font-medium text-white transition-colors hover:text-white/80 ${link.href.slice(1) && link.href.slice(1) === active ? "text-white/80" : ""}`}
+                    className={`inline-block font-uncut text-[18px] font-medium text-white transition-colors hover:text-white/80 ${link.href.slice(1) && link.href.slice(1) === active ? "text-white/80" : ""}`}
                   >
                     {link.label}
                   </a>
@@ -161,17 +161,6 @@ export default function Navbar() {
               ))}
             </ul>
           </nav>
-
-          <div className="flex flex-col gap-5 px-6 pb-24">
-            <LanguageToggle lang={lang} onToggle={toggle} />
-            <a
-              href="/"
-              className="inline-flex items-center justify-center gap-2 rounded-lg bg-white px-8 py-4 font-uncut text-[20px] font-medium text-primary-gb"
-            >
-              <FaRightToBracket aria-hidden="true" />
-              {t("Login")}
-            </a>
-          </div>
 
           <img
             src="/assets/images/logo-vector.png"

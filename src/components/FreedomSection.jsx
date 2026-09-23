@@ -14,7 +14,7 @@ export default function FreedomSection() {
 
         <div className="section-margin-mt-50">
           <div data-reveal="zoom" data-delay="0.05">
-            <div className="overflow-hidden rounded-t-[16px]">
+            <div className="overflow-hidden rounded-t-2xl">
               <img
                 src={FREEDOM.image}
                 alt="Freedom in every journey"
@@ -23,7 +23,7 @@ export default function FreedomSection() {
             </div>
           </div>
 
-          <div className="mt-[50px] flex flex-wrap justify-start gap-x-8 gap-y-10 xl:justify-end">
+          <div className="mt-12.5 flex flex-wrap justify-start gap-x-8 gap-y-10 xl:justify-end">
             {FREEDOM.features.map((feature, i) => (
               <div
                 key={feature.title}

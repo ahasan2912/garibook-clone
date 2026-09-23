@@ -65,11 +65,11 @@ export default function StatsSection() {
   return (
     <section
       ref={skyRef}
-      className="happy-client-wrapper relative w-full mt-5"
+      className="happy-client-wrapper relative w-full mt-20 md:mt-5"
       style={{ background: "linear-gradient(270deg, #0e53ff, #0038c4)" }}
       id="homepage_happy_client_wrapper">
       {/* Booking widget pulled over the hero boundary */}
-      <div className="choose-trip-details-wrapper relative z-10 -top-37.5 lg:-top-42">
+      <div className="choose-trip-details-wrapper relative -top-37.5 lg:-top-42">
         <div className="container-gb">
           <BookingWidget />
         </div>

@@ -7,7 +7,7 @@ export default function PeopleTogetherSection() {
     <section className="people-together-wrapper section-padding-ptb-70">
       <div className="container-gb">
         <div className="section-header" data-reveal>
-          <h2 className="text-white!" data-reveal>
+          <h2 className="text-black!" data-reveal>
             {PEOPLE_TOGETHER.title}
             <br />
             {PEOPLE_TOGETHER.titleLine2}

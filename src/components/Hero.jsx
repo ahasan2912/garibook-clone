@@ -28,12 +28,12 @@ export default function Hero() {
   return (
     <section
       ref={rootRef}
-      className="homepage_hero_wrapper relative pt-[80px] pb-[150px] lg:pt-[118px] lg:pb-[290px]"
+      className="homepage_hero_wrapper relative pt-20 pb-37.5 lg:pt-29.5 lg:pb-72.5"
     >
       <div className="container-gb">
         <div className="flex flex-col items-start gap-10 lg:flex-row lg:gap-6">
           <div className="hero-left w-full lg:w-1/2">
-            <div className="hero-title-container flex min-h-[150px] w-full items-start">
+            <div className="hero-title-container flex min-h-37.5 w-full items-start">
               <h1
                 className="hero-title overflow-visible font-montserrat font-bold text-ink-gb text-[38px] leading-[1.15] sm:text-[46px] md:text-[56px] xl:text-[64px] xl:leading-[72px]"
                 style={{ margin: 0 }}

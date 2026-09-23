@@ -230,8 +230,7 @@ export default function BookingWidget() {
     <div>
       <div
         role="tablist"
-        className="inline-flex gap-3 rounded-[12px] border-0 bg-white p-7 pb-px shadow-[0_-214px_60px_0_hsla(0,0%,73%,0),0_-137px_55px_0_hsla(0,0%,73%,0.01),0_-77px_46px_0_hsla(0,0%,73%,0.05),0_-34px_34px_0_hsla(0,0%,73%,0.09),0_-9px_19px_0_hsla(0,0%,73%,0.1)]"
-      >
+        className="inline-flex gap-3 rounded-[12px] border-0 bg-white p-7 pb-px shadow-[0_-214px_60px_0_hsla(0,0%,73%,0),0_-137px_55px_0_hsla(0,0%,73%,0.01),0_-77px_46px_0_hsla(0,0%,73%,0.05),0_-34px_34px_0_hsla(0,0%,73%,0.09),0_-9px_19px_0_hsla(0,0%,73%,0.1)]">
         {TABS.map((tabDef) => {
           const Icon = tabDef.icon;
           const active = tab === tabDef.key;
@@ -244,11 +243,11 @@ export default function BookingWidget() {
                 setTab(tabDef.key);
                 setForm({ ...EMPTY, trip: tripOptions[0] });
               }}
-              className={`inline-flex items-center gap-2 rounded-[8px] px-6 py-3.5 text-[18px] font-semibold leading-7 transition-colors duration-300 sm:px-10 ${
+              className={`inline-flex items-center gap-2 rounded-lg px-2 sm:px-6 py-1.5 sm:py-3.5 text-[15px] sm:text-[18px] font-semibold leading-7 transition-colors duration-300 ${
                 active ? "bg-ink-gb text-white" : "bg-white text-ink-gb hover:bg-soft-gb"
               }`}
             >
-              <Icon aria-hidden="true" />
+              <Icon aria-hidden="true" className="hidden sm:block" />
               {t(tabDef.label)}
             </button>
           );
@@ -259,8 +258,7 @@ export default function BookingWidget() {
         <form
           onSubmit={(e) => e.preventDefault()}
           className="flex flex-col"
-          aria-label={`${t(tab === "car-rental" ? "Car Rental" : "Airport Rental")} booking`}
-        >
+          aria-label={`${t(tab === "car-rental" ? "Car Rental" : "Airport Rental")} booking`}>
           <div className="grid grid-cols-1 items-start gap-x-7 gap-y-6 sm:grid-cols-2 xl:grid-cols-4">
             <FieldShell icon={FIELD_ICONS.car} label={t("Choose a Car")} divider>
               <CarSelect value={form.car} onChange={set("car")} cars={CAR_TYPES} t={t} />

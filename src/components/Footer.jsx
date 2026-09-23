@@ -47,8 +47,7 @@ export default function Footer() {
                 {FOOTER.columns.map((col, i) => (
                   <div
                     key={col.title}
-                    className={`lg:col-span-3 ${i === 0 ? "lg:col-span-2" : ""}`}
-                  >
+                    className={`lg:col-span-3 ${i === 0 ? "lg:col-span-2" : ""}`}>
                     <div className="footer-widget-info">
                       <h6 className="footer-widget-title mb-5">{col.title}</h6>
                       <ul className="m-0 list-none space-y-3 p-0">
@@ -95,9 +94,9 @@ export default function Footer() {
             </div>
 
             {/* Mid footer */}
-            <div className="footer-v-mid-content section-margin-mb-50 grid grid-cols-1 gap-12 lg:grid-cols-2">
+            <div className="footer-v-mid-content section-margin-mb-50 grid grid-cols-1 gap-12 md:grid-cols-2">
               <div className="footer-v-mid-download lg:mb-0">
-                <h2 className="footer-title-one max-w-md text-[26px] font-semibold leading-9 text-white xl:text-[32px] xl:font-bold xl:leading-[40px]">
+                <h2 className="footer-title-one max-w-md text-[26px] font-semibold leading-9 text-white xl:text-[32px] xl:font-bold xl:leading-10">
                   {t("Download Our")}
                   <br />
                   {t("Garibook Mobile App")}
@@ -111,15 +110,15 @@ export default function Footer() {
                 />
               </div>
 
-              <ul className="m-0 flex list-none flex-col justify-around gap-10 p-0 xl:gap-5">
+              <ul className="m-0 flex flex-col sm:flex-row list-none gap-8 p-0">
                 {FOOTER.companies.map((company) => (
-                    <CompanyBrand key={company.name} company={company} t={t} />
-                  ))}
+                  <CompanyBrand key={company.name} company={company} t={t} />
+                ))}
               </ul>
             </div>
           </div>
 
-          <hr className="border-[#2a2a2a]" />
+          <hr className="border-[#2a2a2a] mt-10" />
 
           {/* Bottom bar */}
           <div className="footer-v-bottom-content py-8">
@@ -145,13 +144,13 @@ export default function Footer() {
                     {t("Privacy Policy")}
                   </a>
                 </li>
+                <li className="text-[17px] leading-6 text-[#c7c7c7] max-w-70">
+                  {FOOTER.tradeLicense}
+                </li>
               </ul>
 
-              <div className="flex flex-col items-center gap-4 text-center lg:items-end lg:text-right">
-                <span className="text-[15px] leading-6 text-[#c7c7c7]">
-                  {FOOTER.tradeLicense}
-                </span>
-                <p className="mb-0 text-[15px] leading-6 text-[#c7c7c7]">
+              <div className="flex flex-col items-center gap-1 text-center lg:items-end lg:text-right">
+                <p className="mb-0 text-lg leading-6 text-[#c7c7c7]">
                   {FOOTER.copyright}
                 </p>
               </div>
@@ -166,7 +165,7 @@ export default function Footer() {
           <img
             src="/assets/images/clients/ssl.png"
             alt="SSL Logo"
-            className="h-auto w-full object-cover"
+            className="h-15 md:h-auto w-full object-cover"
           />
         </div>
       </div>

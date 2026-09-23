@@ -7,12 +7,9 @@ export default function FreedomSection() {
     <section className="freedom-wrapper section-padding-ptb-70 bg-black">
       <div className="container-gb">
         <div className="section-header">
-          <h2 className="text-white" data-reveal>
+          <h2 className="text-white!" data-reveal>
             {FREEDOM.title}
           </h2>
-          <p className="text-muted-gb" data-reveal data-delay="0.05">
-            {FREEDOM.description}
-          </p>
         </div>
 
         <div className="section-margin-mt-50">

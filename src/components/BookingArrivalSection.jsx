@@ -27,7 +27,7 @@ export default function BookingArrivalSection() {
       <div className="container-gb">
         <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-center">
           <div className="section-header lg:max-w-[55%]" data-reveal>
-            <h2 className="text-white">{BOOKING_ARRIVAL.title}</h2>
+            <h2 className="text-white!">{BOOKING_ARRIVAL.title}</h2>
           </div>
           <div
             className="flex justify-start lg:justify-end"

@@ -6,6 +6,40 @@ export default function Navbar() {
   const { lang, toggle, t, data } = useI18n();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [active, setActive] = useState("");
+
+  const handleNavClick = (e, href) => {
+    const targetId = href.startsWith("#") ? href.slice(1) : null;
+    if (!targetId) return;
+    e.preventDefault();
+    const el = document.getElementById(targetId);
+    if (el) {
+      setActive(targetId);
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+    setOpen(false);
+  };
+
+  useEffect(() => {
+    const ids = data.NAV_LINKS.map((l) =>
+      l.href.startsWith("#") ? l.href.slice(1) : null
+    ).filter(Boolean);
+    if (!ids.length) return;
+    const onScroll = () => {
+      const offset = 160;
+      const current = ids.find((id) => {
+        const el = document.getElementById(id);
+        return el && el.getBoundingClientRect().top <= offset;
+      });
+      if (current && current !== active) {
+        setActive(current);
+      } else if (!current && active) {
+        setActive("");
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [data.NAV_LINKS, active]);
 
   const brandSrc =
     lang === "bn"
@@ -52,7 +86,8 @@ export default function Navbar() {
               <a
                 key={link.label}
                 href={link.href}
-                className="nav-theme-link"
+                onClick={(e) => handleNavClick(e, link.href)}
+                className={`nav-theme-link ${link.href.slice(1) === active ? "active-menu" : ""}`}
               >
                 {link.label}
               </a>
@@ -117,8 +152,8 @@ export default function Navbar() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    onClick={() => setOpen(false)}
-                    className="block border-b border-white/15 py-4 font-uncut text-[20px] font-medium text-white transition-colors hover:text-white/80"
+                    onClick={(e) => handleNavClick(e, link.href)}
+                    className={`block border-b border-white/15 py-4 font-uncut text-[20px] font-medium text-white transition-colors hover:text-white/80 ${link.href.slice(1) === active ? "text-white/80" : ""}`}
                   >
                     {link.label}
                   </a>

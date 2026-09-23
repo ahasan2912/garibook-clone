@@ -7,7 +7,7 @@ export default function PeopleTogetherSection() {
     <section className="people-together-wrapper section-padding-ptb-70">
       <div className="container-gb">
         <div className="section-header" data-reveal>
-          <h2>
+          <h2 className="text-white!" data-reveal>
             {PEOPLE_TOGETHER.title}
             <br />
             {PEOPLE_TOGETHER.titleLine2}
@@ -19,7 +19,7 @@ export default function PeopleTogetherSection() {
             {PEOPLE_TOGETHER.cards.map((card, i) => (
               <div key={card.title} className="w-full md:w-[calc(50%-12px)] xl:w-[calc(33.333%-16px)]">
                 <div
-                  className="people-together-box group relative h-[320px] overflow-hidden rounded-[16px] lg:h-[420px]"
+                  className="people-together-box group relative h-80 overflow-hidden rounded-2xl lg:h-105"
                   data-reveal
                   data-delay={String(i * 0.1)}
                 >
@@ -28,7 +28,7 @@ export default function PeopleTogetherSection() {
                     alt={card.title}
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.06]"
                   />
-                  <div className="absolute inset-x-0 top-0 z-[1] p-5 md:p-7">
+                  <div className="absolute inset-x-0 top-0 z-1 p-5 md:p-7">
                     <h4 className="people-together-text text-2xl font-bold leading-9 text-white md:text-[32px]">
                       {card.title}
                     </h4>

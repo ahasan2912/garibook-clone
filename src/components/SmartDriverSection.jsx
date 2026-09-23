@@ -5,7 +5,7 @@ export default function SmartDriverSection() {
   const { data } = useI18n();
   const { SMART_DRIVER } = data;
   return (
-    <section className="no-commission-wrapper section-padding-ptb-70 overflow-hidden">
+    <section id="smart-driver" className="no-commission-wrapper section-padding-ptb-70 overflow-hidden scroll-mt-32">
       <div className="container-gb">
         <div className="section-header" data-reveal>
           <h2>{SMART_DRIVER.title}</h2>

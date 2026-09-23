@@ -5,21 +5,21 @@ import { useI18n } from "../i18n";
 function RideCard({ card }) {
   return (
     <div className="w-full">
-      <div className="group box-item-wrap-one relative inline-flex min-h-[280px] w-full flex-col items-start justify-center overflow-hidden rounded-[12px] bg-card-gb p-9 transition-all duration-500 hover:bg-primary-gb xl:min-h-[326px]">
+      <div className="group box-item-wrap-one relative inline-flex min-h-70 w-full flex-col items-start justify-center overflow-hidden rounded-xl bg-card-gb p-9 transition-all duration-500 hover:bg-primary-gb xl:min-h-81.5">
         <span
           aria-hidden="true"
-          className="absolute left-[-36px] top-0 z-0 h-[86px] w-0 rounded-br-[12px] rounded-tr-[12px] bg-white transition-all duration-500 group-hover:w-[120px]"
+          className="absolute left-0 top-20 z-0 h-21.5 w-0 rounded-br-xl rounded-tr-xl bg-white transition-all duration-500 group-hover:w-30"
         />
-        <div className="box-iwo-img relative z-[1]">
+        <div className="box-iwo-img relative z-1">
           <img
             src={card.image}
             alt={card.title}
             height={72}
-            className="mt-2 w-auto max-w-full transition-transform duration-500 group-hover:translate-x-5"
+            className={`${card.title === 'Airport Rental' ? 'mt-11' : 'mt-2'} ${card.title === 'Hourly Rental' ? 'mt-8' : 'mt-2'} w-auto max-w-full transition-transform duration-500 group-hover:translate-x-5`}
           />
         </div>
         <div className="box-iwo-text relative mt-4">
-          <h5 className="text-[22px] font-semibold leading-7 text-ink-gb transition-colors duration-500 group-hover:text-white xl:text-2xl">
+          <h5 className={`text-[22px] font-semibold leading-7 text-ink-gb transition-colors duration-500 group-hover:text-white xl:text-2xl `}>
             {card.title}
           </h5>
           <p className="mt-3 text-[17px] font-medium leading-6 text-muted-gb transition-colors duration-500 group-hover:text-white xl:text-lg">
@@ -41,7 +41,7 @@ function RidesPane({ data, t }) {
           {t("One Platform")}
         </h2>
       </div>
-      <div className="grid grid-cols-1 gap-[22px] sm:grid-cols-2 xl:grid-cols-4">
+      <div className="grid grid-cols-1 gap-5.5 sm:grid-cols-2 xl:grid-cols-4">
         {data.rides.cards.map((card) => (
           <RideCard key={card.title} card={card} />
         ))}
@@ -104,11 +104,10 @@ export default function ServicesSection() {
                   role="tab"
                   aria-selected={isActive}
                   onClick={() => setActive(tab.toLowerCase())}
-                  className={`rounded-[12px] border-none px-8 py-4 text-[16px] font-semibold leading-7 transition-all duration-500 sm:px-12 xl:text-[20px] ${
-                    isActive
-                      ? "bg-primary-gb text-white"
-                      : "bg-[#e9e9e9] text-ink-gb hover:bg-primary-gb hover:text-white"
-                  }`}
+                  className={`rounded-xl border-none px-8 py-4 text-[16px] font-semibold leading-7 transition-all duration-500 sm:px-12 xl:text-[20px] ${isActive
+                    ? "bg-primary-gb text-white"
+                    : "bg-[#e9e9e9] text-ink-gb hover:bg-primary-gb hover:text-white"
+                    }`}
                 >
                   {tab}
                 </button>

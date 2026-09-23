@@ -255,12 +255,12 @@ body {
   height: 78px;
   flex: none;
   border-radius: 50%;
-  background: transparent;
-  border: 2px solid var(--color-primary-gb);
-  color: var(--color-primary-gb);
+  background: white;
+  border: 1.5px solid rgb(224, 219, 219);
+  color: #121212;
   cursor: pointer;
   transition:
-    background-color 0.3s ease,
+    background-color 0.5s ease,
     color 0.3s ease,
     transform 0.3s ease,
     opacity 0.3s ease;
@@ -272,9 +272,9 @@ body {
 }
 
 .custom-slider-arrow:hover:not(:disabled) {
-  background: var(--color-primary-gb);
-  color: #fff;
   transform: scale(1.04);
+  background-color: black;
+  color: white;
 }
 
 .custom-slider-arrow:disabled {

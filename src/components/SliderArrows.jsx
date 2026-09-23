@@ -1,4 +1,5 @@
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 
 export default function SliderArrows({ onPrev, onNext, canPrev = true, canNext = true, className = "" }) {
   return (
@@ -10,7 +11,7 @@ export default function SliderArrows({ onPrev, onNext, canPrev = true, canNext =
         onClick={onPrev}
         disabled={!canPrev}
       >
-        <FaChevronLeft aria-hidden="true" />
+        <FaArrowLeft aria-hidden="true" />
       </button>
       <button
         type="button"
@@ -19,7 +20,7 @@ export default function SliderArrows({ onPrev, onNext, canPrev = true, canNext =
         onClick={onNext}
         disabled={!canNext}
       >
-        <FaChevronRight aria-hidden="true" />
+        <FaArrowRight aria-hidden="true" />
       </button>
     </div>
   );
